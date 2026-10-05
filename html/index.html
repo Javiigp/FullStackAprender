@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullStack</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+
+        <h2>DevJobs</h2>
+
+        <!-- Separo el h2 del nav porque en el header aparecen separado  -->
+
+        <nav>
+            <a href="">Inicio</a>
+            <a href="">Empleos</a>
+        </nav>
+
+        <!-- Separo el nav del div porque en el header aparecen separado  -->
+
+        <div>
+            <a href="">Publicar un empleo</a>
+            <a href="">Iniciar Sesión</a>
+        </div>
+
+    </header>
+
+    <main>
+
+        <section>
+            <img src="/html/background.webp" alt="">
+            <h1>Encuentra el trabajo de tus sueños</h1>
+            <p>Únete a la comunidad mas grande de desarrolladores y encuentra tu próxima oportunidad</p>
+
+            <!-- Hago un formulario porque estas haciendo una busqueda . Para eso lo haces de tipo 
+            search -->
+            <form role="search">
+                
+                <!-- Con el svg meto la foto de la lupa  -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                    <path d="M21 21l-6 -6" />
+                </svg>
+
+                <!-- El placeholder es el texto que aparece mas claro indican que es  -->
+                <input type="text" placeholder="Buscar empleos por titulo,habilidad o empresa">
+                <!-- El boton lo pongo de tipo submit ya que al final es para enviar sobre que quieres
+                buscar  -->
+                <button type="submit">Buscar</button>
+            </form>
+        </section>
+
+        <section>
+            <!-- hago un header porque es como un miniheader dentro de esta sección  -->
+            <header>
+                <h1>¿Por qué DevJobs?</h1>
+                <p>DevJobs es la principal bolsa de trabajo para desarrolladores . Conectamos a los desarrolladores con las mejores empresas del mundo</p>
+            </header>
+
+            <!-- Pongo un article porque son 3 cajas que se repiten . Siempre que sea algo que se
+             repite es recomendable poner article   -->
+
+            <article>   
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 9a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -9" /><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" /><path d="M12 12l0 .01" /><path d="M3 13a20 20 0 0 0 18 0" /></svg>
+                <h3>Encuentra el trabajo de tus sueños</h3>
+                <p>Busca miles de empleos de las mejores empresas de todo el mundo.</p>
+            </article>
+            
+            <article>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-users">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                </svg>
+                <h3>Conecta con las mejores empresas</h3>
+                <p>Conecta con empresas que están contratando por tus habilidades.</p>
+            </article>
+
+            <article>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-skyscraper"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l18 0" /><path d="M5 21v-14l8 -4v18" /><path d="M19 21v-10l-6 -4" /><path d="M9 9l0 .01" /><path d="M9 12l0 .01" /><path d="M9 15l0 .01" /><path d="M9 18l0 .01" /></svg>
+                <h3>Obtén el salario que mereces</h3>
+                <p>Obtén el salario que mereces con nuestra calculadora de salarios.</p>
+            </article>
+
+            
+        </section>
+
+    </main>
+
+    <hr>
+
+    <footer>
+        <small>&copy; 2025 DevJobs. Todos los derechos reservados.</small>
+    </footer>
+    
+</body>
+</html>
