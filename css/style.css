@@ -1,8 +1,125 @@
-body{
-    background-color: rgb(15, 63, 85);
+
+/*Con "*" digo que a todos los elementos de la pagina le hago eso */
+* {
+    /*Esto es para hacer el reset*/
+  margin: 0;
+  padding: 0;
+  /*El border box es para que el borde no sume . Es decir si la caja tiene 10px y quieres que con 
+  el borde ocupe 10px pues le pones border box porque si tu a esos 10px le pones un borde de 
+  5px entonces la caja y el borde serian 15px , sin embargo tu querias que solo fueran 10px todo*/
+  box-sizing: border-box;
 }
 
-a{
-    color: black;
-    text-decoration: none;
+/*En root creo variables para todo el css*/
+:root{
+    --primary: #3b4550;
+    --primary-dark: #0a3d66;
+    --primary-hover: #0d5ba8;
+    --primary-light: #09f;
+    --background: #06182a;
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    /*Para poner opacidad se hace con el rgba y le pones al final el 0.1 o lo que sea
+    , ese 0.1 es 10% de opacidad*/
+    --border: rgba(255, 255, 255, 0.1); 
+    --card-bg: #1e293b;
+    /*30% de opacidad*/
+    --shadow: rgba(0, 0, 0, 0.3);
+    --input-bg: #1e293b;
+    --hsla-example: hsla(210, 100%, 56%, 1);
 }
+
+body{
+
+    /*Con esto digo que todo el body tiene estos parametros por defecto aunque yo luego puedo 
+    cambiarlo fuera del body*/
+
+    /*Recomendable poner la del sistema */
+    font-family: system-ui;
+    background-color: var(--background); /*Con var(--background) digo que el color es la 
+    variable que hemos definido arriba*/
+    color: var(--text-primary); /*Color del texto*/
+    /*Siempre usar este min-height para que la pagina siempre use toda la pantalla y no se quede
+    zonas en blanco . 100vh es que use el 100% del viewport en el height*/
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /*El line-height es el espacio entre lineas . Con 1 estarian normal y cuanto mas le pongas
+    mas separacion entre lineas habrá*/
+    line-height: 1.6;
+
+}
+
+
+/*Con font-face lo que se hace es meter una fuente de internet*/
+@font-face {
+    /*Con esto digo , creo una funete nueva que se llama Inter Variable cuyo font-style sea normal
+    etc y luego con el src pongo el enlace a donde copio esa fuente de internet*/
+    font-family: 'Inter Variable'; /*Este nombre se lo pongo yo*/
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  text-wrap: balance;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--primary-light);
+  }
+}
+
+/*Cojer los parrafos que esten justo despues de un h1*/
+h1 + p {
+
+    /*El text-wrap lo que hace esque te reparte de forma equilibrada el texto entre varias lineas.
+    Por ejemplo , sin text-wrap = hola me llamo javier  
+                                  Guerrero
+                                  
+                 con text-wrap = hola me llamo 
+                                 javier Guerrero*/
+
+    text-wrap: balance;
+    /*El margen con lo de abajo*/
+    margin-bottom: 2rem
+}
+
+/*Header*/
+
+header{
+    background-color: var(--primary-light);
+    display: flex;
+    /*Primer valor arriba y abajo y segundo valor derecha e izquierda*/
+    padding: .5rem 1rem;
+    justify-content: space-between;
+    /*En el horizontal los alineo en el centro*/
+    align-items: center;
+    gap: 2rem;
+
+}
+
+/*No pongo el nav dentro del header porque hay otro nav en otro lado y asi hago que se aplique
+a los dos y no solo al del header*/
+nav{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    /*Los a de dentro del nav*/
+    a{
+        text-decoration: none;
+        /*Si no pongo el color dentro del a no funciona*/
+        color: var(--text-primary);
+    }
+}
+
