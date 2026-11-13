@@ -97,7 +97,7 @@ h1 + p {
 /*Header*/
 
 header{
-    background-color: var(--primary-light);
+    background-color: var(--background);
     display: flex;
     /*Primer valor arriba y abajo y segundo valor derecha e izquierda*/
     padding: .5rem 1rem;
@@ -119,7 +119,105 @@ nav{
     a{
         text-decoration: none;
         /*Si no pongo el color dentro del a no funciona*/
-        color: var(--text-primary);
+        color: var(--text-secondary);
+        /*El font-weight es para hacer mas grande la letra*/
+        font-weight: 500;
+        /*El transition lo que hace esque por ejemplo a la propiedad color le pones 0,2segundos para 
+        que el cambio entre el normal y hover sea de 0,2segundos para suavizarlo un poco y que no sea
+        tan directo*/
+        transition: color 0.2s;
+      
+        /*El focus en teoria es cuando escribes en un input , aqui no se ve y no tiene mucho sentido*/
+        &:hover, &:focus {
+            color: var(--primary);
+            /*El outline es para quitar una linea exterior que es parecido al border . Se hace esto 
+            porque al hacer focus se suele activar el outline */
+            outline: none;
+    }
     }
 }
+
+header div{
+    display: flex;
+    /*Para dar espacio entre los dos div*/
+    gap: 1rem;
+}
+
+header div a{
+    text-decoration: none;
+    color: var(--text-primary);
+    border-radius: 0.5rem;
+    /*Arriba y abajo , izquierda y derecha*/
+    padding: 0.3rem 0.5rem;
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border: 0.2rem solid var(--text-muted);
+    background-color: var(--text-muted);
+
+    /*Para coger el ultimo div*/
+    &:last-child{
+        border: 0.2rem solid var(--primary-hover);
+        background-color: var(--primary-hover);
+    }
+}
+
+/*Cojo el primer section que sea hijo del main (es decir que el section sea el primer section dentro
+del main) y luego ese section que sea el primer section */
+
+/*Se pone el mayor para que sea si o si el primer section solo*/
+main > section:nth-child(1) {
+    height: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+    padding-top: 36px;
+    }
+
+    /*Coje la primera imagen del section*/
+    & > img {
+        /*Pongo el positioin absolute para que quede por debajo */
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /*El object-fit : cover lo que hace esque la imagen ocupe todo el espacio que le he dado*/
+        object-fit: cover;
+        /*Con el z-index -1 directamente digo la imagen se ponga por debajo y no tengo que decir por
+        ejemplo imagen tiene z-index = 1 y lo demas z-index = 2*/
+        z-index: -1;
+        left: 0;
+        right: 0;
+        /*Esto hace un degradado de arriba a abajo donde al principio le haces un 5% de un color
+        ,es decir que la mascara no tapa casi la imagen y despues le aplicas un 80% de otro color para 
+        que la imagen casi no se vea*/
+        mask-image: linear-gradient(to bottom, rgba(16, 25, 34, 1) 5%, rgba(16, 25, 34, 0) 80%);
+  }
+}
+
+form{
+    /*Pongo el maximo que es mas o menos lo que quiero*/
+    max-width: 42rem;
+    /*Con esto digo que ocupe el 100% del espacio que es el 42rem*/
+    width: 100%;
+    margin: 0 auto;
+    padding-inline: 1rem;
+}
+
+form > div{
+    background-color: var(--input-bg);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 15px -3px var(--shadow);
+}
+
+
+
+
 

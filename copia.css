@@ -192,6 +192,7 @@ form span {
   color: var(--text-muted);
   display: flex;
   align-items: center;
+  /*El flex-shrink es para que no encoja lo que sea ni aunque falte espacio*/
   flex-shrink: 0;
 }
 
