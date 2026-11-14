@@ -207,6 +207,10 @@ form{
     padding-inline: 1rem;
 }
 
+form svg{
+    margin-left: 0.5rem;
+}
+
 form > div{
     background-color: var(--input-bg);
     border-radius: 0.5rem;
@@ -215,6 +219,139 @@ form > div{
     align-items: center;
     justify-content: center;
     box-shadow: 0 10px 15px -3px var(--shadow);
+}
+
+/*Esto es para coger el input dentro de un form y que el input sea el que tenga type = "text"*/
+form input[type="text"]{
+    /**/
+    /*Con el flex 1 hace que el input se estire lo maximo posible */
+    flex: 1;
+    /*Para que el fondo se vea transparente*/
+    background: transparent;
+    /*Con el border = none y el outline = none quito lo que se pone al escribir*/
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    padding: 0.75rem 0.5rem;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+form input[type="text"]::placeholder {
+  color: #64748b;
+}
+
+button{
+    background-color: var(--primary-light);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-primary);
+    font-weight: 400;
+    /*Para que cuando pase por encima se ponga como el cursor para pulsar*/
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    font-size: 1rem;
+    white-space: nowrap;
+
+    &:hover, /* Cuando el ratón está encima */
+    &:focus { /* Cuando hago foco en el raton */
+        /*Cambio el fondo*/
+        background-color: var(--primary-hover);
+        /*Le pongo un outline que es parecido al borde de color blanco*/
+        outline: 2px solid white;
+        /*Lo que hace el offset esque cuando pasas el raton por encima el outline se aumenta 2px 
+        y ademas se hace como unos segundos despues y parece una animacion */ 
+        outline-offset: 2px;
+    }
+
+    /*El active es cuando pulsas */
+    &:active { 
+        /*esto lo que hace esque reduce un 10% el tamaño del boton*/ 
+        transform: scale(0.90)
+    }
+
+    /*Cuando el boton esta disabled le quitas opacidad poniendole 50% y le quitas lo de cursor pointer
+    para que cuando pases por encima no aparezca para pulsar el boton*/
+    &:disabled {
+        opacity: .5;
+        pointer-events: none;
+    }
+
+    
+}
+
+main > section:nth-child(2) {
+    padding-inline: 1rem;
+    background-color: var(--background);
+    padding-top: 2rem;
+
+    & > header {
+    gap: 0.5rem;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    p {
+      opacity: .75;
+      text-align: center;
+    }
+  }
+}
+
+hr{
+    /*Lo pongo casi transparente*/
+    border: 0;
+}
+
+article{
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    margin-bottom: 16px;
+    border-radius: 0.5rem;
+    /*Para la sombra que se ve alrededor*/
+    /*El primer px es hacia los lados , el segundo arriba y abajo y el tercero es cuanto difuminado quiero*/
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+
+    svg{
+        width: 4rem;
+        height: 4rem;
+        background-color: var(--primary-dark);
+        color: var(--primary-light);
+        border-radius: 100%;
+        /*Se hace mas pequeño el svg cuanto mas grande hago el padding porque al tener border box se hace
+        mas grande el circulo pero hay menos espacio para el svg*/
+        padding: 16px;
+        
+    }
+    
+}
+
+.cartas{
+    display: grid;
+    /*Basicamente lo que digo esque se vaya ajustando pero que minimo tenga o 280px o 1fr para 
+    que se ajuste a meter una cartas mas*/
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+
+footer{
+    text-align: center;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding: 16px;
+
+    small {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    }
 }
 
 
