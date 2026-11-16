@@ -19,66 +19,6 @@ botones.addEventListener('click' , function(event) {
 })
 
 
-//--------------------------------------------------------------------------------------------------
-
-
-//Filtros
-
-//Con esto cojo el select de ubicacion
-const filterLocation = document.getElementById('location');
-
-const articulos = document.querySelectorAll(".clase-article")
-
-
-//Con esto lo que hago es que cada vez que cambia el select, es decir cada vez que cogemos
-//una nueva opcion entonces hacemos lo que sea
-filterLocation.addEventListener('change' , function(){
-
-    //El filter.value me da el valor que yo le he asignado como value en el option
-    const valor_select = filterLocation.value
-
-    //para cada articulo hago como un artic in articulos
-    articulos.forEach( artic => {
-
-        //cojo los h5 de cada articulo con el querySelector . El querySelector es como cuando
-        //Coges algo en css
-        const h5 = artic.querySelector("h5")
-
-        //Con textContent saco el texto , con split lo que hace esque separa el texto en dos y 
-        //cojo la segunda parte
-        const ubicacion =  h5.textContent.split("|")[1].trim().toLowerCase()
-
-        //Proceso
-        // tipo_ubicacion_tarjetas.textContent = Tech Solutions | Remoto
-
-        //.split("|") = ["Tech Solutions ", " Remoto"]
-
-        //Con [1] cojo remoto y con el trim quito los espacios
-
-        //filtro
-
-        //si el valor del select es igual que el valor de ubicacion entonces muestramelo
-        //si no no me muestres nada
-
-        //Pongo lo del valor_select === "" porque en ubicacion en el option yo he puesto que 
-        // value = "" entonces asi si le doy a ubicacion me muestra todas las opciones
-        
-        if(valor_select === "" | valor_select === ubicacion){
-            console.log(ubicacion)
-            //El flex es para que ese estilo se muestre , es decir que ese article se muestre
-            artic.style.display = "flex"
-        }
-
-        else{
-            artic.style.display = "none"
-        }
-
-    })
-    
-
-})
-
-
 //----------------------------------------------------------------------------------------------------------------------
 
 /*
@@ -133,6 +73,111 @@ fetch("../javascript/data.json")
             container.appendChild(article)
         })
     })
+
+
+
+//--------------------------------------------------------------------------------------------------
+
+
+//Filtros
+
+//Con esto cojo el select de ubicacion
+const filterLocation = document.getElementById('location');
+
+
+//Con esto lo que hago es que cada vez que cambia el select, es decir cada vez que cogemos
+//una nueva opcion entonces hacemos lo que sea
+filterLocation.addEventListener('change' , function(){
+
+    //ahora el articulo lo tengo que poner dentro del addeventlistener porque si lo pongo 
+    //fuera , al ejecutarlo el articulo todavia no se ha creado porque está en un fetch entonces
+    //lo ponemos dentro de este evento para que asi pasé suficiente tiempo para que se cree
+    //el articulo en el fetch
+    const articulos = document.querySelectorAll(".clase-article")
+
+    //El filter.value me da el valor que yo le he asignado como value en el option
+    const valor_select = filterLocation.value
+
+    //para cada articulo hago como un artic in articulos
+    articulos.forEach( artic => {
+
+        //cojo los h5 de cada articulo con el querySelector . El querySelector es como cuando
+        //Coges algo en css
+        const h5 = artic.querySelector("h5")
+
+        //Con textContent saco el texto , con split lo que hace esque separa el texto en dos y 
+        //cojo la segunda parte
+        const ubicacion =  h5.textContent.split("|")[1].trim().toLowerCase()
+
+        //Proceso
+        // tipo_ubicacion_tarjetas.textContent = Tech Solutions | Remoto
+
+        //.split("|") = ["Tech Solutions ", " Remoto"]
+
+        //Con [1] cojo remoto y con el trim quito los espacios
+
+        //filtro
+
+        //si el valor del select es igual que el valor de ubicacion entonces muestramelo
+        //si no no me muestres nada
+
+        //Pongo lo del valor_select === "" porque en ubicacion en el option yo he puesto que 
+        // value = "" entonces asi si le doy a ubicacion me muestra todas las opciones
+        
+        if(valor_select === "" | valor_select === ubicacion){
+            console.log(ubicacion)
+            //El flex es para que ese estilo se muestre , es decir que ese article se muestre
+            artic.style.display = "flex"
+        }
+
+        else{
+            artic.style.display = "none"
+        }
+
+    })
+    
+
+})
+
+
+const filterTecnology = document.getElementById("tecnologys");
+
+filterTecnology.addEventListener('change' , function(){
+
+    
+    const articulos = document.querySelectorAll(".clase-article")
+
+    //El filter.value me da el valor que yo le he asignado como value en el option
+    const valor_select = filterTecnology.value
+    console.log(valor_select)
+
+    //para cada articulo hago como un artic in articulos
+    articulos.forEach( artic => {
+
+        //cojo los h5 de cada articulo con el querySelector . El querySelector es como cuando
+        //Coges algo en css
+        const p = artic.querySelector("p")
+        const parrafo = p.textContent.toLowerCase()
+        console.log(parrafo)
+
+        //filtro
+
+        //Si p contiene valor_select entonces lo muestro , si no , no lo muestro
+        
+        if(parrafo.includes(valor_select)){
+            artic.style.display = "flex"
+        }
+
+        else{
+            artic.style.display = "none"
+        }
+
+    })
+    
+
+})
+
+
 
 
 //-----------------------------------------------------------------------------------------------------------------------------
