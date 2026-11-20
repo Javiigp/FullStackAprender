@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleos</title>
+    <link rel="stylesheet" href="/css/react.css">
+
+    <script type="module"> 
+        import React from "https://esm.sh/react?dev";
+        import ReactDOM from "https://esm.sh/react-dom/client?dev";
+        
+        const titulo = React.createElement(
+            "h1" , 
+            {
+                style: {color : "#09f" }
+            },
+            "¡Hola , React.js!"
+
+        )
+
+        //Con esto digo que en react-root sea donde haga las cosas
+        //selecciono donde lo quiero poner en html
+        const rootEl = document.getElementById("react-root")
+        //creo un root en ese div que es para decir que ahi quiero esto
+        const root = ReactDOM.createRoot(rootEl)
+        root.render(titulo)
+    </script>
+    
+</head>
+<body>
+
+    <header>
+
+        <nav>
+
+        <!-- Junto el nav con el h2 porque aparecen juntos  -->
+
+        <h2>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            DevJobs
+        </h2>
+        <div>
+            <a href="/html/index.html">Inicio</a>
+            <a href="/html/empleos.html">Empleos</a>
+            <a href="">Empresas</a>
+            <a href="">Salarios</a>
+        </div>
+        </nav>
+
+        <!-- Separo el nav del div porque en el header aparecen separado  -->
+
+        <div>
+            <button>Subir CV</button>
+            <img src="/utiles/usuario.png" alt="">
+        </div>
+
+    </header>
+
+    <hr>
+
+    <main>
+        <section class="react">
+            <h1>React.js , primeros pasos</h1>
+        </section>
+
+        <!-- Le puedo poner el nombre que quiera  -->
+        <div id="react-root"></div>
+        
+    </main>
+
+
+    
+</body>
+</html>
